@@ -11,8 +11,8 @@
   --color-header-light: #f4f4f5; /* for mobile dropdown backgrounds */
 
   /* Text */
-  --color-primary: #052a9c; /* deep blue - main text, links */
-  --color-secondary: #1d88c6; /* slightly muted cyan-blue - hover / active accents */
+  --color-primary: #155dfc; /* deep blue - main text, links */
+  --color-secondary: #052a9c; /* slightly muted cyan-blue - hover / active accents */
   --color-accent: #ffc107; /* optional gold/amber for CTA highlights */
 
   /* Buttons */

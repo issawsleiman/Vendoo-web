@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 
-export default function HeroSections() {
-  /* Hero Section */
+// here's the hero section goes
+export default function HeroSection() {
   return (
     <section
       id="home"
-      className="pt-24 min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-blue-100 via-blue-50 to-white"
+      className="pt-14 min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-blue-100 to-blue-200"
     >
       <motion.h2
         className="text-4xl sm:text-6xl font-extrabold text-blue-900 mb-6"
@@ -17,7 +17,7 @@ export default function HeroSections() {
       </motion.h2>
 
       <motion.p
-        className="text-gray-600 max-w-2xl text-lg mb-8"
+        className="text-grey-600 max-w-2xl text-lg mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
@@ -30,19 +30,10 @@ export default function HeroSections() {
         href="#features"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-blue-700 transition"
+        className="bg-primary text-white px-8 py-3 rounded-full font-semibold"
       >
         Start Selling Now
       </motion.a>
-
-      <motion.img
-        src="./vendoo_fav_icon.png"
-        alt="Vendoo Logo"
-        className="mt-10 w-24 h-24 opacity-90"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-      />
     </section>
   );
 }
