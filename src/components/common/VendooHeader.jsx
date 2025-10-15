@@ -51,21 +51,21 @@ export default function Header() {
 
           {/* Desktop Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            {/* Secondary Button - Sign In */}
+            {/* Secondary Button - Register*/}
             <button
               className="px-6 py-2.5 border border-[#052a9c] text-[#052a9c] rounded-full font-semibold
           hover:bg-[#052a9c] hover:text-white hover:shadow-md
           transition-all duration-150 cursor-pointer shadow-sm"
             >
-              Sign In
+              Register
             </button>
 
-            {/* Primary Button - Sign Up */}
+            {/* Primary Button - Sign In */}
             <button
               className="px-5 py-2.5 bg-[#052a9c] text-white rounded-full font-semibold
           hover:bg-[#1d88c6] hover:shadow-md transition-all duration-150 cursor-pointer"
             >
-              Sign Up
+              Sign In
             </button>
           </div>
 
@@ -109,14 +109,14 @@ export default function Header() {
 
             {/* Mobile Buttons */}
             <div className="flex flex-col items-center space-y-3 pt-4 border-t border-gray-200 w-full">
-              {/* Secondary - Sign In */}
+              {/* Secondary - Sign Register */}
               <button className="w-32 px-6 py-2.5 border border-[#052a9c] text-[#052a9c] rounded-md font-medium hover:bg-[#052a9c] hover:text-white transition-colors duration-200 cursor-pointer">
-                Sign In
+                Register
               </button>
 
-              {/* Primary - Sign Up */}
+              {/* Primary - Sign IN */}
               <button className="w-32 px-6 py-2.5 bg-[#052a9c] text-white rounded-md font-medium hover:bg-[#1d88c6] transition-colors duration-200 cursor-pointer">
-                Sign Up
+                Sign In
               </button>
             </div>
           </div>
