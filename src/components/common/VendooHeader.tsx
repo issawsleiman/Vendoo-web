@@ -12,7 +12,7 @@ export default function Header() {
     <section>
       <motion.header
         // Main header container with subtle glass effect
-        className="fixed lg:fixed top-0 left-0 w-full h-[80px] shadow-md z-50 bg-white/70 backdrop-blur-md"
+        className="fixed lg:fixed top-0 left-0 w-full h-[80px] shadow-md z-50 bg-white/70 backdrop-blur-md "
         initial={{ opacity: 0, top: -20 }} // Initial mount animation
         animate={{ opacity: 1, top: 0 }} // Animate into view
         transition={{ duration: 0.5, ease: "easeOut" }}

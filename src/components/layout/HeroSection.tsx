@@ -17,7 +17,7 @@ export default function HeroSection() {
       </motion.h2>
 
       <motion.p
-        className="text-grey-600 max-w-2xl text-lg mb-8 ml-10 mr-10"
+        className="text-grey-600 max-w-2xl text-lg mb-8 ml-10 mr-10 text-red-500 md:text-black"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
