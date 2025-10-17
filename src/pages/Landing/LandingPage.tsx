@@ -1,4 +1,3 @@
-import { SwitchCamera } from "lucide-react";
 import VendooFooter from "../../components/common/VendooFooter";
 import VendooHeader from "../../components/common/VendooHeader";
 import HeroSection from "../../components/layout/HeroSection";

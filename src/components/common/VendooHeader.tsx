@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { navLinks } from "../../utils/constants";
 import { useHideOnScroll } from "../../utils/useEffects";
+import { useState } from "react";
 
 export default function Header() {
   // managing mobile drop down menu
