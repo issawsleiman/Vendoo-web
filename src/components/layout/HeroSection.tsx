@@ -44,7 +44,7 @@ export default function HeroSection() {
 
       <section id="services" className="py-1 px-6 bg-white">
         <motion.h3
-          className="w-full text-center text-2xl md:text-3xl font-bold text-red-900 mb-5 mt-5"
+          className="w-full text-center text-2xl md:text-3xl font-bold text-gray-900 mb-5 mt-5"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
