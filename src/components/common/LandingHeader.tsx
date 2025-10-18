@@ -63,24 +63,9 @@ export default function LandingHeader() {
 
         {/* Desktop Buttons */}
         <div className="hidden md:flex items-center space-x-4">
-          {/* Secondary Button - Register*/}
-          <Link
-            to="register"
-            className="px-6 py-2.5 border border-[#052a9c] text-[#052a9c] rounded-full font-semibold
-          hover:bg-[#052a9c] hover:text-white hover:shadow-md
-          transition-all duration-150 cursor-pointer shadow-sm"
-          >
-            Register
-          </Link>
-
-          {/* Primary Button - Sign In */}
-          <Link
-            to="signin"
-            className="px-5 py-2.5 bg-[#052a9c] text-white rounded-full font-semibold
-          hover:bg-[#1d88c6] hover:shadow-md transition-all duration-150 cursor-pointer"
-          >
-            Sign In
-          </Link>
+          <VendooBorderdRoundedButton text={"Register"} action={() => {}} />
+          {/* Primary Button - Login */}
+          <VendooRoundedButton text={"Login"} action={() => {}} />
         </div>
 
         {/* Mobile Hamburger Menu Toggle */}
@@ -133,9 +118,9 @@ export default function LandingHeader() {
               text={"Register"}
             />
 
-            {/* Primary - Sign IN */}
+            {/* Primary - Login */}
             <VendooRoundedButton
-              text={"Sign in"}
+              text={"Login"}
               action={() => {
                 setMobileMenuOpen(false);
               }}

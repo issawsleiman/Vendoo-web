@@ -3,36 +3,48 @@ import VendooLabel from "../../components/widgets/VendooLabel";
 import VendooInput from "../../components/widgets/VendooInput";
 import { useState } from "react";
 import VendooRoundedButton from "../../components/widgets/VendooRoundedButton";
+import { Link } from "react-router-dom";
 
 export default function RegisterPage() {
-  const [formData, setFormData] = useState({ name: "", email: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    console.log("Register form submitted:", formData);
   };
+
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center p-6">
-      {/* Register form */}
+    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 p-6">
+      {/* Register Form */}
       <motion.form
         onSubmit={handleSubmit}
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full max-w-md bg-white/90 backdrop-blur-md p-10 rounded-xl shadow-2xl flex flex-col gap-6"
+        className="w-full max-w-md bg-white/90 backdrop-blur-lg p-10 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.1)] flex flex-col gap-8"
       >
+        {/* Heading */}
         <motion.h1
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl font-bold text-blue-700 text-center"
+          className="text-3xl md:text-4xl font-extrabold text-blue-700 text-center"
         >
-          Register
+          Create an Account
         </motion.h1>
 
-        {/* Name field */}
+        <p className="text-center text-gray-500 -mt-4 text-sm">
+          Join Vendoo today and start exploring.
+        </p>
+
+        {/* Name Field */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -15 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.1 }}
           className="flex flex-col"
@@ -43,7 +55,7 @@ export default function RegisterPage() {
             name="name"
             type="text"
             value={formData.name}
-            hintText="Your Name"
+            hintText="Your full name"
             isRequired
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, name: e.target.value }))
@@ -53,9 +65,9 @@ export default function RegisterPage() {
 
         {/* Email Field */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -15 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.15 }}
           className="flex flex-col"
         >
           <VendooLabel text="Email" htmlFor="email" />
@@ -64,7 +76,7 @@ export default function RegisterPage() {
             name="email"
             type="email"
             value={formData.email}
-            hintText="Your Email"
+            hintText="example@mail.com"
             isRequired
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, email: e.target.value }))
@@ -74,7 +86,7 @@ export default function RegisterPage() {
 
         {/* Password Field */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -15 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
           className="flex flex-col"
@@ -84,37 +96,60 @@ export default function RegisterPage() {
             id="password"
             name="password"
             type="password"
-            value={formData.email}
-            hintText="Password"
+            value={formData.password}
+            hintText="••••••••"
             isRequired
             onChange={(e) =>
-              setFormData((prev) => ({ ...prev, email: e.target.value }))
+              setFormData((prev) => ({ ...prev, password: e.target.value }))
             }
           />
         </motion.div>
+
         {/* Confirm Password Field */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -15 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.25 }}
           className="flex flex-col"
         >
           <VendooLabel text="Confirm Password" htmlFor="confirmPassword" />
           <VendooInput
             id="confirmPassword"
             name="confirmPassword"
-            type="assword"
-            value={formData.email}
-            hintText="Confirm Password"
+            type="password"
+            value={formData.confirmPassword}
+            hintText="Confirm your password"
             isRequired
             onChange={(e) =>
-              setFormData((prev) => ({ ...prev, email: e.target.value }))
+              setFormData((prev) => ({
+                ...prev,
+                confirmPassword: e.target.value,
+              }))
             }
           />
         </motion.div>
 
         {/* Submit Button */}
-        <VendooRoundedButton text={"Register"} action={() =>{}} />
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.35 }}
+        >
+          <VendooRoundedButton text="Register" action={handleSubmit} />
+        </motion.div>
+
+        {/* Footer Links */}
+        <div className="flex justify-between text-sm text-gray-500 mt-3">
+          <p className="hover:text-blue-600 transition-colors duration-200">
+            Already have an account?
+          </p>
+          <Link
+            to="login"
+            className="hover:text-blue-600 transition-colors duration-200"
+          >
+            Login
+          </Link>
+        </div>
       </motion.form>
     </div>
   );

@@ -16,7 +16,7 @@ import {
   Truck,
   UserCheck,
 } from "lucide-react";
-import type { Feature } from "../../models/Service";
+import type { Feature } from "../../models/Feature";
 
 // Nav LINKS
 export const navLinks = ["Home", "About", "Contact", "About US"];

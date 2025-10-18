@@ -16,7 +16,7 @@ export default function VendooRoundedButton({ text, action }: ButtonProps) {
       whileTap={{ scale: 0.95 }}
       className="bg-primary text-white px-8 py-3 rounded-full font-semibold text-center"
     >
-      <Link to="" onClick={action}>
+      <Link to={text.toLowerCase().trim()} onClick={action}>
         {text}
       </Link>
     </motion.div>

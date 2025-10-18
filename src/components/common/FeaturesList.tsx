@@ -5,7 +5,7 @@ export default function FeaturesList() {
   return (
     <div className="grid md:grid-cols-2 gap-6 mt-10 mb-10">
       {featuresList.map((item, i) => (
-        <ServiceCard key={i} service={item} />
+        <ServiceCard key={i} feature={item} />
       ))}
     </div>
   );

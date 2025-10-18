@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import type { Service } from "../../models/Service";
+import type { Feature } from "../../models/Feature";
 
 type Props = {
-  service: Service;
+  feature: Feature;
 };
 
-export default function ServiceCard({ service }: Props) {
+export default function ServiceCard({ feature }: Props) {
   return (
     <motion.div
       className="group w-full p-8 bg-white shadow-sm hover:shadow-lg rounded-2xl border border-gray-100 transition-all duration-300"
@@ -16,7 +16,7 @@ export default function ServiceCard({ service }: Props) {
     >
       {/* Icon */}
       <div className="flex items-center justify-center w-16 h-16 rounded-xl bg-blue-50 mb-6 group-hover:bg-blue-100 transition-colors duration-300">
-        <service.icon
+        <feature.icon
           size={32}
           color="#155dfc"
           strokeWidth={2.5}
@@ -26,11 +26,11 @@ export default function ServiceCard({ service }: Props) {
 
       {/* Title */}
       <h3 className="text-xl font-semibold text-gray-900 mb-3">
-        {service.title}
+        {feature.title}
       </h3>
 
       {/* Description */}
-      <p className="text-gray-600 leading-relaxed">{service.desc}</p>
+      <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
     </motion.div>
   );
 }
