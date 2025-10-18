@@ -31,7 +31,7 @@ export default function LandingSections() {
           take control of your digital store — all in one secure platform.
         </motion.p>
 
-        <VendooRoundedButton text={"Start Selling Now"} />
+        <VendooRoundedButton text={"Start Selling Now"} action={() => {}} />
       </section>
 
       {/* features section */}
@@ -44,9 +44,7 @@ export default function LandingSections() {
         What We Offer
       </motion.h3>
 
-      
-        <FeaturesList />
-    
+      <FeaturesList />
     </>
   );
 }

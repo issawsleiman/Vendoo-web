@@ -13,7 +13,7 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-blue-400 to-blue-200 flex items-center justify-center p-6">
+    <div className="w-full  bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center p-6">
       {/* Sign in form */}
       <motion.form
         onSubmit={handleSubmit}
@@ -74,7 +74,7 @@ export default function SignInPage() {
         </motion.div>
 
         {/* Submit Button */}
-        <VendooRoundedButton text={"Sign in"} />
+        <VendooRoundedButton text={"Sign in"} action={() => {}} />
       </motion.form>
     </div>
   );

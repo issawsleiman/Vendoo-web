@@ -6,12 +6,7 @@ export default function LandingLayout({ children }: any) {
   return (
     <>
       <LandingHeader />
-      <main
-        style={{ marginTop: `${HEADER_HEIGHT}px` }}
-        className="min-h-screen"
-      >
-        {children}
-      </main>
+      <main style={{ marginTop: `${HEADER_HEIGHT}px` }}>{children}</main>
       <MainFooter />
     </>
   );

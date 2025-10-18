@@ -12,7 +12,7 @@ export default function RegisterPage() {
     console.log("Form submitted:", formData);
   };
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-blue-400 to-blue-200 flex items-center justify-center p-6">
+    <div className="w-full min-h-screen bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center p-6">
       {/* Register form */}
       <motion.form
         onSubmit={handleSubmit}
@@ -114,7 +114,7 @@ export default function RegisterPage() {
         </motion.div>
 
         {/* Submit Button */}
-        <VendooRoundedButton text={"Register"} />
+        <VendooRoundedButton text={"Register"} action={() =>{}} />
       </motion.form>
     </div>
   );
