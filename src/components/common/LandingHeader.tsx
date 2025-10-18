@@ -4,7 +4,7 @@ import { navLinks } from "../../utils/constants";
 import { useHideOnScroll } from "../../utils/useEffects";
 import { useState } from "react";
 
-export default function Header() {
+export default function LandingHeader() {
   // managing mobile drop down menu
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -39,7 +39,7 @@ export default function Header() {
               whileHover={{ scale: 1.05 }} // Subtle hover scale effect
               whileTap={{ scale: 0.98 }} // Tap feedback
               key={link}
-              href="#"
+              href={link.trim().toLowerCase()}
               onClick={() => setCurrentPageIndex(index)}
               className={`px-4 py-2 rounded-xl font-semibold text-sm md:text-base 
             transition-all duration-300 ease-in-out text-center
@@ -96,7 +96,7 @@ export default function Header() {
           {navLinks.map((link, index) => (
             <a
               key={link}
-              href="#"
+              href={link.toLowerCase()}
               onClick={() => {
                 setCurrentPageIndex(index);
                 setMobileMenuOpen(false); // Close menu after click

@@ -1,16 +1,25 @@
 import "./index.css";
 // @ts-ignore: no declaration file for './components/Header' (JSX module)
-import VendooHeader from "./components/common/VendooHeader";
-import LandingPage from "./pages/Landing/LandingPage";
 
-function App() {
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import LandingLayout from "./components/layout/LandingLayout";
+import HomeLanding from "./pages/Landing/LandingHome";
+import AboutPage from "./pages/Landing/AboutPage";
+import ContactUsPage from "./pages/Landing/ContactUsPage";
+
+export default function App() {
   return (
-    <>
-      <div className="font-sans text-gray-800">
-        <LandingPage />
-      </div>
-    </>
+    <Router>
+      <LandingLayout>
+        <Routes>
+          <Route path="/home" element={<HomeLanding />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactUsPage />} />
+          <Route path="/pricing" element={<ContactUsPage />} />
+          <Route path="/contactus" element={<ContactUsPage />} />
+        </Routes>
+      </LandingLayout>
+    </Router>
   );
 }
-
-export default App;

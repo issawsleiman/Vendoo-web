@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import { servicesList } from "../../utils/constants";
-import ServiceCard from "../cards/ServiceCard";
+import { servicesList } from "../utils/constants";
+import ServiceCard from "./cards/ServiceCard";
 
-// here's the hero section goes
-export default function HeroSection() {
+// here's the landing sections go
+export default function LandingSections() {
   return (
     <>
       {/* main section */}

@@ -19,7 +19,7 @@ import {
 import type { Service } from "../models/Service";
 
 // Nav LINKS
-export const navLinks = ["Home", "About", "Pricing", "Contact", "About US"];
+export const navLinks = ["Home", "About", "Contact", "About US"];
 
 export const servicesList: Service[] = [
   {
