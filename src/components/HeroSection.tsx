@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { servicesList } from "../utils/constants";
-import ServiceCard from "./cards/ServiceCard";
+
+import VendooRoundedButton from "./widgets/VendooRoundedButton";
+import FeaturesList from "./common/FeaturesList";
 
 // here's the landing sections go
 export default function LandingSections() {
@@ -30,33 +31,22 @@ export default function LandingSections() {
           take control of your digital store — all in one secure platform.
         </motion.p>
 
-        <motion.a
-          href="#features"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-primary text-white px-8 py-3 rounded-full font-semibold"
-        >
-          Start Selling Now
-        </motion.a>
+        <VendooRoundedButton text={"Start Selling Now"} />
       </section>
 
-      {/* services section */}
+      {/* features section */}
+      <motion.h3
+        className="w-full text-center text-2xl md:text-3xl font-bold text-gray-900 mb-5 mt-5"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        What We Offer
+      </motion.h3>
 
-      <section id="services" className="py-1 px-6 bg-white">
-        <motion.h3
-          className="w-full text-center text-2xl md:text-3xl font-bold text-gray-900 mb-5 mt-5"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          What We Offer
-        </motion.h3>
-        <div className="grid md:grid-cols-2 gap-6">
-          {servicesList.map((item, i) => (
-            <ServiceCard key={i} service={item} />
-          ))}
-        </div>
-      </section>
+      
+        <FeaturesList />
+    
     </>
   );
 }

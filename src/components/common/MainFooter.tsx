@@ -1,6 +1,11 @@
+import { FOOTER_HEIGHT } from "../../utils/constants/layout";
+
 export default function VendooFooter() {
   return (
-    <footer className="bg-gray-50 text-gray-300 py-12 px-6">
+    <footer
+      style={{ height: `${FOOTER_HEIGHT}px` }}
+      className="bg-gray-50 text-gray-300 py-12 px-6"
+    >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Logo / Brand */}
         <div className="text-white text-1xl md:text-2xl font-bold">

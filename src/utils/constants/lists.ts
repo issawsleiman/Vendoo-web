@@ -16,12 +16,12 @@ import {
   Truck,
   UserCheck,
 } from "lucide-react";
-import type { Service } from "../models/Service";
+import type { Feature } from "../../models/Service";
 
 // Nav LINKS
 export const navLinks = ["Home", "About", "Contact", "About US"];
 
-export const servicesList: Service[] = [
+export const featuresList: Feature[] = [
   {
     icon: ShoppingBag,
     title: "Buy & Sell Platform",

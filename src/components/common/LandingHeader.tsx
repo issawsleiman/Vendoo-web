@@ -1,8 +1,10 @@
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
-import { navLinks } from "../../utils/constants";
 import { useHideOnScroll } from "../../utils/useEffects";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { HEADER_HEIGHT } from "../../utils/constants/layout";
+import { navLinks } from "../../utils/constants/lists";
 
 export default function LandingHeader() {
   // managing mobile drop down menu
@@ -14,8 +16,8 @@ export default function LandingHeader() {
 
   return (
     <motion.header
-      // Main header container with subtle glass effect
-      className="fixed lg:fixed top-0 left-0 w-full h-[80px] shadow-md z-50 bg-white/70 backdrop-blur-lg "
+      style={{ height: `${HEADER_HEIGHT}px` }}
+      className="fixed lg:fixed top-0 left-0 w-full shadow-md z-50 bg-white/70 backdrop-blur-lg"
       initial={{ opacity: 0, y: -20 }} // Initial mount animation
       animate={{
         opacity: 1,
@@ -35,44 +37,48 @@ export default function LandingHeader() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-4">
           {navLinks.map((link, index) => (
-            <motion.a
+            <motion.div
               whileHover={{ scale: 1.05 }} // Subtle hover scale effect
               whileTap={{ scale: 0.98 }} // Tap feedback
               key={link}
-              href={link.trim().toLowerCase()}
-              onClick={() => setCurrentPageIndex(index)}
-              className={`px-4 py-2 rounded-xl font-semibold text-sm md:text-base 
-            transition-all duration-300 ease-in-out text-center
-            ${
-              currentPageIndex === index
-                ? "bg-[#1d88c6] text-white shadow-md shadow-blue-300/40" // Active link
-                : "text-gray-600 hover:bg-[rgba(29,136,198,0.1)] hover:text-[#1d88c6]" // Default + hover
-            }
-          `}
             >
-              {link}
-            </motion.a>
+              <Link
+                to={link}
+                onClick={() => setCurrentPageIndex(index)}
+                className={`px-4 py-2 rounded-xl font-semibold text-sm md:text-base transition-all duration-300 ease-in-out text-center
+      ${
+        currentPageIndex === index
+          ? "bg-[#1d88c6] text-white shadow-md shadow-blue-300/40"
+          : "text-gray-600 hover:bg-[rgba(29,136,198,0.1)] hover:text-[#1d88c6]"
+      }
+    `}
+              >
+                {link}
+              </Link>
+            </motion.div>
           ))}
         </nav>
 
         {/* Desktop Buttons */}
         <div className="hidden md:flex items-center space-x-4">
           {/* Secondary Button - Register*/}
-          <button
+          <Link
+            to="register"
             className="px-6 py-2.5 border border-[#052a9c] text-[#052a9c] rounded-full font-semibold
           hover:bg-[#052a9c] hover:text-white hover:shadow-md
           transition-all duration-150 cursor-pointer shadow-sm"
           >
             Register
-          </button>
+          </Link>
 
           {/* Primary Button - Sign In */}
-          <button
+          <Link
+            to="signin"
             className="px-5 py-2.5 bg-[#052a9c] text-white rounded-full font-semibold
           hover:bg-[#1d88c6] hover:shadow-md transition-all duration-150 cursor-pointer"
           >
             Sign In
-          </button>
+          </Link>
         </div>
 
         {/* Mobile Hamburger Menu Toggle */}
@@ -94,36 +100,48 @@ export default function LandingHeader() {
       >
         <div className="flex flex-col items-center py-4 space-y-3">
           {navLinks.map((link, index) => (
-            <a
-              key={link}
-              href={link.toLowerCase()}
+            <div
+              key={link.toLowerCase()}
               onClick={() => {
                 setCurrentPageIndex(index);
-                setMobileMenuOpen(false); // Close menu after click
+                setMobileMenuOpen(false);
               }}
-              className={`px-6 py-2 rounded-md text-center font-medium transition-colors duration-200
-            ${
-              currentPageIndex === index
-                ? "bg-[#1d88c6] text-white" // Active link
-                : "text-[#052a9c] hover:bg-[rgba(29,136,198,0.1)] hover:text-[#1d88c6]" // Default + hover
-            }
-          `}
+              className="px-6 py-2 rounded-md text-center font-medium transition-colors duration-200"
             >
-              {link}
-            </a>
+              <Link
+                to={link}
+                className={`px-6 py-2 rounded-md text-center font-medium transition-colors duration-200
+    ${
+      currentPageIndex === index
+        ? "bg-[#1d88c6] text-white"
+        : "text-[#052a9c] hover:bg-[rgba(29,136,198,0.1)] hover:text-[#1d88c6]"
+    }
+  `}
+              >
+                {link}
+              </Link>
+            </div>
           ))}
 
           {/* Mobile Buttons */}
           <div className="flex flex-col items-center space-y-3 pt-4 border-t border-gray-200 w-full">
             {/* Secondary - Sign Register */}
-            <button className="w-32 px-6 py-2.5 border border-[#052a9c] text-[#052a9c] rounded-md font-medium hover:bg-[#052a9c] hover:text-white transition-colors duration-200 cursor-pointer">
+            <Link
+              to="register"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-32 px-6 py-2.5 border border-[#052a9c] text-[#052a9c] rounded-md font-medium hover:bg-[#052a9c] hover:text-white transition-colors duration-200 cursor-pointer"
+            >
               Register
-            </button>
+            </Link>
 
             {/* Primary - Sign IN */}
-            <button className="w-32 px-6 py-2.5 bg-[#052a9c] text-white rounded-md font-medium hover:bg-[#1d88c6] transition-colors duration-200 cursor-pointer">
+            <Link
+              to="signin"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-32 px-6 py-2.5 bg-[#052a9c] text-white rounded-md font-medium hover:bg-[#1d88c6] transition-colors duration-200 cursor-pointer"
+            >
               Sign In
-            </button>
+            </Link>
           </div>
         </div>
       </div>
