@@ -47,7 +47,7 @@ export default function LandingHeader() {
               key={link}
             >
               <Link
-                to={link}
+                to={getValidRouteName({ text: link })}
                 onClick={() => setCurrentPageIndex(index)}
                 className={`px-4 py-2 rounded-xl font-semibold text-sm md:text-base transition-all duration-300 ease-in-out text-center
       ${

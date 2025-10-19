@@ -20,7 +20,7 @@ import type { Feature } from "../../models/Feature";
 import type {Pricing} from "../../models/Pricing"
 
 // Nav LINKS
-export const navLinks = ["Home", "Features","Pricing","About Us", "Contact"];
+export const navLinks = ["Home", "Features","Pricing","About", "Contact"];
 
 // Features List
 export const featuresList: Feature[] = [

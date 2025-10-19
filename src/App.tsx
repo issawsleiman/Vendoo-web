@@ -9,6 +9,7 @@ import RegisterPage from "./pages/auth/RegisterPage";
 import SignInPage from "./pages/auth/SignInPage";
 import PricingPage from "./pages/Dashboard/PricingPage";
 import ForgotPasswordPage from "./pages/Dashboard/ForgotPasswordPage";
+import FeaturesPage from "./pages/Dashboard/FeaturesPage";
 
 export default function App() {
   return (
@@ -17,10 +18,11 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomeLanding />} />
           <Route path="/home" element={<HomeLanding />} />
-          <Route path="/about-us" element={<AboutPage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactUsPage />} />
           <Route path="/pricing" element={<PricingPage />} />
-          <Route path="/contact-us" element={<ContactUsPage />} />
+          <Route path="/contact" element={<ContactUsPage />} />
+          <Route path="/features" element={<FeaturesPage />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
 
           {/* signIn & register pages */}

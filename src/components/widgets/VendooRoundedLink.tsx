@@ -25,7 +25,7 @@ export default function VendooRoundedLink({
       <Link
         to={getValidRouteName({ text: text })}
         onClick={action}
-        className="bg-primary text-white px-8 py-3 rounded-full font-semibold text-center cursor-pointer h-6 overflow-hidden"
+        className="bg-primary text-white px-8 py-3 rounded-full font-semibold text-center cursor-pointer overflow-hidden "
       >
         {text}
       </Link>
