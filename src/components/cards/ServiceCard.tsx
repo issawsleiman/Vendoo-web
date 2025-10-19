@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import type { Feature } from "../../models/Feature";
 
 type Props = {

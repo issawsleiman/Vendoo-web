@@ -11,21 +11,17 @@ interface ButtonProps {
   action?: React.MouseEventHandler<HTMLAnchorElement>;
 }
 
-export default function VendooRoundedLink({
-  className,
-  text,
-  action,
-}: ButtonProps) {
+export default function VendooRoundedLink({ text, action }: ButtonProps) {
   return (
     <motion.div
-      className={className}
+      className="w-fit mx-auto"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
       <Link
         to={getValidRouteName({ text: text })}
         onClick={action}
-        className="bg-primary text-white px-8 py-3 rounded-full font-semibold text-center cursor-pointer overflow-hidden "
+        className=" w-full bg-primary text-white px-8 py-3 rounded-full font-semibold text-center cursor-pointer overflow-hidden "
       >
         {text}
       </Link>
