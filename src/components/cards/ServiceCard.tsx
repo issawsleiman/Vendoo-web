@@ -7,13 +7,7 @@ type Props = {
 
 export default function ServiceCard({ feature }: Props) {
   return (
-    <motion.div
-      className="group w-full p-8 bg-white shadow-sm hover:shadow-lg rounded-2xl border border-gray-100 transition-all duration-300"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-    >
+    <div className="group w-full p-8 bg-white shadow-sm hover:shadow-lg rounded-2xl border border-gray-100 transition-all duration-300">
       {/* Icon */}
       <div className="flex items-center justify-center w-16 h-16 rounded-xl bg-blue-50 mb-6 group-hover:bg-blue-100 transition-colors duration-300">
         <feature.icon
@@ -31,6 +25,6 @@ export default function ServiceCard({ feature }: Props) {
 
       {/* Description */}
       <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
-    </motion.div>
+    </div>
   );
 }
