@@ -1,4 +1,4 @@
-import { Eye, EyeClosed, Mail, type LucideIcon } from "lucide-react";
+import { Eye, EyeClosed, type LucideIcon } from "lucide-react";
 
 interface InputProps {
   /** The unique id of the input */
