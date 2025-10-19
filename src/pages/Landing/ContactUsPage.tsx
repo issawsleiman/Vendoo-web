@@ -1,24 +1,16 @@
-import { motion } from "framer-motion";
 import VendooRoundedLink from "../../components/widgets/VendooRoundedLink";
+import PageHeader from "../../components/common/PageHeader";
 
 export default function ContactPage() {
   return (
-    <section className="py-24 px-6 bg-gray-50">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-center mb-12"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-          Get in Touch
-        </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Have a question or need help? Our team is here to assist you with
-          anything related to your Vendoo experience.
-        </p>
-      </motion.div>
+    <section className="py-24 px-6 from-blue-100 to-blue-200">
+      <PageHeader
+        title="Get in Touch"
+        description="  Have a question or need help? Our team is here to assist you with
+          anything related to your Vendoo experience."
+      />
 
-      <div className="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-md">
+      <div className="max-w-3xl mx-auto from-blue-100 to-blue-200 p-8 rounded-2xl shadow-md">
         <form className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
