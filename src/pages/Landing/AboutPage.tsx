@@ -14,7 +14,6 @@ export default function AboutPage() {
         About Vendoo
       </motion.h1>
 
-      <FeaturesList />
       {/* Description Section */}
       <motion.p
         initial={{ opacity: 0 }}

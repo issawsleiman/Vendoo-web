@@ -2,7 +2,10 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import VendooInput from "../../components/widgets/VendooInput";
 import VendooLabel from "../../components/widgets/VendooLabel";
-import VendooRoundedButton from "../../components/widgets/VendooRoundedButton";
+import VendooRoundedButton from "../../components/widgets/VendooRoundedLink";
+import { LockIcon, MailIcon } from "lucide-react";
+import { Link } from "react-router-dom";
+import getValidRouteName from "../../utils/functions/getValidRouteName";
 
 export default function SignInPage() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -50,6 +53,7 @@ export default function SignInPage() {
             type="email"
             value={formData.email}
             hintText="example@mail.com"
+            Icon={MailIcon}
             isRequired
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, email: e.target.value }))
@@ -71,6 +75,7 @@ export default function SignInPage() {
             type="password"
             value={formData.password}
             hintText="••••••••"
+            Icon={LockIcon}
             isRequired
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, password: e.target.value }))
@@ -84,23 +89,29 @@ export default function SignInPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
         >
-          <VendooRoundedButton text="Sign In" action={handleSubmit} />
+          <VendooRoundedButton
+            className="w-full mx-auto"
+            text="Sign In"
+            action={handleSubmit}
+          />
         </motion.div>
 
         {/* Footer Links */}
         <div className="flex justify-between text-sm text-gray-500 mt-3">
-          <a
-            href="#"
+          <Link
+            replace
+            to={`/${getValidRouteName({ text: "forgot password" })}`}
             className="hover:text-blue-600 transition-colors duration-200"
           >
             Forgot password?
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            replace
+            to="/register"
             className="hover:text-blue-600 transition-colors duration-200"
           >
             Create account
-          </a>
+          </Link>
         </div>
       </motion.form>
     </div>

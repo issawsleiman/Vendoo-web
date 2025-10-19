@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import VendooRoundedButton from "./widgets/VendooRoundedButton";
+import VendooRoundedButton from "./widgets/VendooRoundedLink";
 import FeaturesList from "./common/FeaturesList";
 
 // here's the landing sections go

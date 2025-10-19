@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 import VendooLabel from "../../components/widgets/VendooLabel";
 import VendooInput from "../../components/widgets/VendooInput";
 import { useState } from "react";
-import VendooRoundedButton from "../../components/widgets/VendooRoundedButton";
+import VendooRoundedButton from "../../components/widgets/VendooRoundedLink";
 import { Link } from "react-router-dom";
+import { LockIcon, MailIcon, User2Icon, UserCircle } from "lucide-react";
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
@@ -54,6 +55,7 @@ export default function RegisterPage() {
             id="name"
             name="name"
             type="text"
+            Icon={User2Icon}
             value={formData.name}
             hintText="Your full name"
             isRequired
@@ -75,6 +77,7 @@ export default function RegisterPage() {
             id="email"
             name="email"
             type="email"
+            Icon={MailIcon}
             value={formData.email}
             hintText="example@mail.com"
             isRequired
@@ -98,6 +101,7 @@ export default function RegisterPage() {
             type="password"
             value={formData.password}
             hintText="••••••••"
+            Icon={LockIcon}
             isRequired
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, password: e.target.value }))
@@ -119,6 +123,7 @@ export default function RegisterPage() {
             type="password"
             value={formData.confirmPassword}
             hintText="Confirm your password"
+            Icon={LockIcon}
             isRequired
             onChange={(e) =>
               setFormData((prev) => ({
@@ -144,7 +149,8 @@ export default function RegisterPage() {
             Already have an account?
           </p>
           <Link
-            to="login"
+            replace
+            to="/login"
             className="hover:text-blue-600 transition-colors duration-200"
           >
             Login

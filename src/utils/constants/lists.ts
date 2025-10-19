@@ -17,10 +17,12 @@ import {
   UserCheck,
 } from "lucide-react";
 import type { Feature } from "../../models/Feature";
+import type {Pricing} from "../../models/Pricing"
 
 // Nav LINKS
-export const navLinks = ["Home", "About", "Contact", "About US"];
+export const navLinks = ["Home", "Features","Pricing","About Us", "Contact"];
 
+// Features List
 export const featuresList: Feature[] = [
   {
     icon: ShoppingBag,
@@ -98,3 +100,41 @@ export const featuresList: Feature[] = [
     desc: "Manage users, listings, and reports through a powerful and easy-to-use admin dashboard.",
   },
 ];
+
+// Pricing List
+export const pricingList : Pricing[] = [
+  {
+      name: "Starter",
+      price: "Free",
+      desc: "Perfect for new users testing Vendoo.",
+      features: [
+        "List up to 5 items per month",
+        "Basic seller dashboard",
+        "Limited analytics",
+      ],
+      highlighted: false,
+  },{
+      name: "Pro",
+      price: "$9.99/mo",
+      desc: "Best for active sellers growing their shop.",
+      features: [
+        "Unlimited listings",
+        "Advanced analytics",
+        "Priority support",
+        "Access to seller tools",
+      ],
+      highlighted: true,
+  },
+  {
+      name: "Business",
+      price: "$19.99/mo",
+      desc: "For small stores or power sellers.",
+      features: [
+        "Everything in Pro",
+        "Multi-store management",
+        "Team collaboration",
+        "API access",
+      ],
+      highlighted: false,
+  }
+]

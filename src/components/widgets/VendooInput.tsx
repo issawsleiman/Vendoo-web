@@ -1,4 +1,4 @@
-import { Mail, MailMinus } from "lucide-react";
+import { Mail, MailMinus, User, type LucideIcon } from "lucide-react";
 
 interface InputProps {
   /** The unique id of the input */
@@ -19,6 +19,9 @@ interface InputProps {
   /** Input type (text, password..) */
   type: string;
 
+  //** Prefix Icon */
+  Icon?: LucideIcon;
+
   /** Optional onChange handler for controlled inputs */
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -30,11 +33,12 @@ export default function VendooInput({
   name,
   type,
   isRequired = false,
+  Icon,
   onChange,
 }: InputProps) {
   return (
     <div className="flex flex-row  justify-center items-center pl-2 pr-2">
-      <MailMinus />
+      {Icon && <Icon size={25} style={{ opacity: 0.5 }} />}
       <input
         id={id}
         name={name}

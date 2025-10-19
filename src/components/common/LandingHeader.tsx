@@ -5,8 +5,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { HEADER_HEIGHT } from "../../utils/constants/layout";
 import { navLinks } from "../../utils/constants/lists";
-import VendooRoundedButton from "../widgets/VendooRoundedButton";
-import VendooBorderdRoundedButton from "../widgets/VendooRoundedBorderedButton";
+import VendooRoundedButton from "../widgets/VendooRoundedLink";
+import VendooBorderdRoundedButton from "../widgets/VendooRoundedBorderedLink";
+import getValidRouteName from "../../utils/functions/getValidRouteName";
 
 export default function LandingHeader() {
   // managing mobile drop down menu
@@ -17,6 +18,7 @@ export default function LandingHeader() {
   const isShowingHeader = useHideOnScroll();
 
   return (
+    // main landing header
     <motion.header
       style={{ height: `${HEADER_HEIGHT}px` }}
       className="fixed lg:fixed top-0 left-0 w-full shadow-md z-50 bg-white/70 backdrop-blur-lg"
@@ -27,7 +29,7 @@ export default function LandingHeader() {
       }} // Animate into view
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
-      {/* Main Header Container */}
+      {/* main header div */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-full">
         {/* Logo */}
         <img
@@ -40,8 +42,8 @@ export default function LandingHeader() {
         <nav className="hidden md:flex space-x-4">
           {navLinks.map((link, index) => (
             <motion.div
-              whileHover={{ scale: 1.05 }} // Subtle hover scale effect
-              whileTap={{ scale: 0.98 }} // Tap feedback
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
               key={link}
             >
               <Link
@@ -61,14 +63,24 @@ export default function LandingHeader() {
           ))}
         </nav>
 
-        {/* Desktop Buttons */}
+        {/* Desktop Login/Register buttons */}
         <div className="hidden md:flex items-center space-x-4">
-          <VendooBorderdRoundedButton text={"Register"} action={() => {}} />
+          <VendooBorderdRoundedButton
+            text={"Register"}
+            action={() => {
+              setCurrentPageIndex(-1);
+            }}
+          />
           {/* Primary Button - Login */}
-          <VendooRoundedButton text={"Login"} action={() => {}} />
+          <VendooRoundedButton
+            text={"Login"}
+            action={() => {
+              setCurrentPageIndex(-1);
+            }}
+          />
         </div>
 
-        {/* Mobile Hamburger Menu Toggle */}
+        {/* Hamburger Menu Toggle */}
         <button
           className="md:hidden p-2 rounded-md hover:bg-[rgba(29,136,198,0.1)] transition-colors"
           onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
@@ -96,7 +108,7 @@ export default function LandingHeader() {
               className="px-6 py-2 rounded-md text-center font-medium transition-colors duration-200"
             >
               <Link
-                to={link}
+                to={getValidRouteName({ text: link })}
                 className={`px-6 py-2 rounded-md text-center font-medium transition-colors duration-200
     ${
       currentPageIndex === index
@@ -110,18 +122,22 @@ export default function LandingHeader() {
             </div>
           ))}
 
-          {/* Mobile Buttons */}
+          {/* Mobile Buttons (Login/register) */}
           <div className="flex flex-col items-center space-y-3 pt-4 border-t border-gray-200 w-full">
             {/* Secondary - Sign Register */}
             <VendooBorderdRoundedButton
-              action={() => setMobileMenuOpen(false)}
+              action={() => {
+                setCurrentPageIndex(-1);
+                setMobileMenuOpen(false);
+              }}
               text={"Register"}
             />
 
             {/* Primary - Login */}
             <VendooRoundedButton
-              text={"Login"}
+              text={"login"}
               action={() => {
+                setCurrentPageIndex(-1);
                 setMobileMenuOpen(false);
               }}
             />
