@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import FeaturesList from "../../components/common/FeaturesList";
 import PageHeader from "../../components/common/PageHeader";
 
