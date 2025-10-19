@@ -9,6 +9,7 @@ import getValidRouteName from "../../utils/functions/getValidRouteName";
 
 export default function SignInPage() {
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const [passwordVisibility, setPasswordVisibility] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -72,9 +73,15 @@ export default function SignInPage() {
           <VendooInput
             id="password"
             name="password"
-            type="password"
+            type={passwordVisibility ? "text" : "password"}
             value={formData.password}
             hintText="••••••••"
+            isPassword={true}
+            isShowingPassword={passwordVisibility}
+            passwordToggleAction={() => {
+              console.log(passwordVisibility);
+              setPasswordVisibility(!passwordVisibility);
+            }}
             Icon={LockIcon}
             isRequired
             onChange={(e) =>

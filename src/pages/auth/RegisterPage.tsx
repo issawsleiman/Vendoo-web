@@ -13,6 +13,10 @@ export default function RegisterPage() {
     password: "",
     confirmPassword: "",
   });
+  const [passwordVisibility, setPasswordVisibility] = useState(false);
+
+  const [confirmPasswordVisibility, setConfirmPasswordVisibility] =
+    useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -98,10 +102,15 @@ export default function RegisterPage() {
           <VendooInput
             id="password"
             name="password"
-            type="password"
+            type={passwordVisibility ? "text" : "password"}
             value={formData.password}
             hintText="••••••••"
             Icon={LockIcon}
+            isPassword={true}
+            isShowingPassword={passwordVisibility}
+            passwordToggleAction={() =>
+              setPasswordVisibility(!passwordVisibility)
+            }
             isRequired
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, password: e.target.value }))
@@ -120,9 +129,14 @@ export default function RegisterPage() {
           <VendooInput
             id="confirmPassword"
             name="confirmPassword"
-            type="password"
+            type={confirmPasswordVisibility ? "text" : "password"}
             value={formData.confirmPassword}
             hintText="Confirm your password"
+            isPassword={true}
+            isShowingPassword={confirmPasswordVisibility}
+            passwordToggleAction={() => {
+              setConfirmPasswordVisibility(!confirmPasswordVisibility);
+            }}
             Icon={LockIcon}
             isRequired
             onChange={(e) =>
