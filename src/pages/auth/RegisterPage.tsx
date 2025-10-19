@@ -4,7 +4,7 @@ import VendooInput from "../../components/widgets/VendooInput";
 import { useState } from "react";
 import VendooRoundedButton from "../../components/widgets/VendooRoundedLink";
 import { Link } from "react-router-dom";
-import { LockIcon, MailIcon, User2Icon, UserCircle } from "lucide-react";
+import { LockIcon, MailIcon, User2Icon } from "lucide-react";
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({

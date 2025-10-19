@@ -1,4 +1,4 @@
-import { Mail, MailMinus, User, type LucideIcon } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 interface InputProps {
   /** The unique id of the input */
