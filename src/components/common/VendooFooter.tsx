@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 import { FOOTER_HEIGHT } from "../../utils/constants/layout";
+import getValidRouteName from "../../utils/functions/getValidRouteName";
 
+// Vendoo Footer
 export default function VendooFooter() {
   return (
     <footer
       style={{ height: `${FOOTER_HEIGHT}px` }}
-      className="bg-gray-50 text-gray-300 py-12 px-6"
+      className="bg-gray-50 text-gray-300 py-12 px-6 mt-20"
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Logo / Brand */}
@@ -18,18 +21,35 @@ export default function VendooFooter() {
 
         {/* Optional Links */}
         <div className="flex flex-wrap justify-center gap-6 text-gray-400 text-sm">
-          <a href="/about" className="hover:text-white transition-colors">
+          <Link
+            replace
+            to={getValidRouteName({ text: "about" })}
+            className="hover:text-white transition-colors"
+          >
             About
-          </a>
-          <a href="/contact" className="hover:text-white transition-colors">
+          </Link>
+          <Link
+            replace
+            to={getValidRouteName({ text: "contact" })}
+            className="hover:text-white transition-colors"
+          >
             Contact
-          </a>
-          <a href="/privacy" className="hover:text-white transition-colors">
+          </Link>
+          <Link
+            to={getValidRouteName({ text: "privacy policy" })}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
             Privacy Policy
-          </a>
-          <a href="/terms" className="hover:text-white transition-colors">
+          </Link>
+          <Link
+            to={getValidRouteName({ text: "terms of service" })}
+            target="_blank"
+            className="hover:text-white transition-colors"
+          >
             Terms of Service
-          </a>
+          </Link>
         </div>
 
         {/* Social Icons (optional) */}

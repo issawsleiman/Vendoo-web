@@ -1,5 +1,5 @@
-import FeaturesList from "../../components/common/FeaturesList";
-import PageHeader from "../../components/common/PageHeader";
+import FeaturesList from "../../components/common/pages/FeaturesListingPage";
+import PageHeader from "../../components/common/SectionHeadingText";
 
 export default function FeaturesPage() {
   return (

@@ -1,6 +1,7 @@
-import FeaturesList from "../../components/common/FeaturesList";
-import PageHeader from "../../components/common/PageHeader";
+import FeaturesList from "../../components/common/pages/FeaturesListingPage";
+import PageHeader from "../../components/common/SectionHeadingText";
 
+// About Page
 export default function AboutPage() {
   return (
     <div className="w-full min-h-screen bg-gradient-to-b from-blue-100 to-blue-200 p-10 flex flex-col items-center">

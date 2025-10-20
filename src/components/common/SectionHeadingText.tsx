@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
 
+
 interface headerProps {
   title: string;
   description: string;
 }
 
-export default function PageHeader({ title, description }: headerProps) {
+// This is the title & description section heading for each page
+export default function SectionHeadingText({ title, description }: headerProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

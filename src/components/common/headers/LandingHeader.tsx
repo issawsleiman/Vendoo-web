@@ -1,13 +1,15 @@
-import { Menu, X } from "lucide-react";
+import { Menu, Moon, X } from "lucide-react";
 import { motion } from "framer-motion";
-import { useHideOnScroll } from "../../utils/useEffects";
+import { useHideOnScroll } from "../../../utils/useEffects";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { HEADER_HEIGHT } from "../../utils/constants/layout";
-import { navLinks } from "../../utils/constants/lists";
-import VendooRoundedButton from "../widgets/VendooRoundedLink";
-import VendooBorderdRoundedButton from "../widgets/VendooRoundedBorderedLink";
-import getValidRouteName from "../../utils/functions/getValidRouteName";
+import { HEADER_HEIGHT } from "../../../utils/constants/layout";
+import { navLinks } from "../../../utils/constants/lists";
+import VendooRoundedButton from "../../widgets/VendooRoundedLink";
+import VendooBorderdRoundedButton from "../../widgets/VendooRoundedBorderedLink";
+import getValidRouteName from "../../../utils/functions/getValidRouteName";
+import ThemeSwitch from "../../widgets/ThemeSwitch";
+import { useTheme } from "../../../context/ThemeContext";
 
 export default function LandingHeader() {
   // managing mobile drop down menu
@@ -17,11 +19,15 @@ export default function LandingHeader() {
 
   const isShowingHeader = useHideOnScroll();
 
+  const currentTheme = useTheme();
+
   return (
     // main landing header
     <motion.header
       style={{ height: `${HEADER_HEIGHT}px` }}
-      className="fixed lg:fixed top-0 left-0 w-full shadow-md z-50 bg-white/70 backdrop-blur-lg"
+      className={`"fixed lg:fixed top-0 left-0 w-full shadow-md z-50 ${
+        currentTheme.isDark ? "bg-black" : "bg-white/40"
+      } backdrop-blur-lg"`}
       initial={{ opacity: 0, y: -20 }} // Initial mount animation
       animate={{
         opacity: 1,
@@ -79,6 +85,8 @@ export default function LandingHeader() {
             }}
           />
         </div>
+
+        <ThemeSwitch />
 
         {/* Hamburger Menu Toggle */}
         <button

@@ -1,13 +1,19 @@
+import { Outlet } from "react-router-dom";
 import { HEADER_HEIGHT } from "../../utils/constants/layout";
-import LandingHeader from "../common/LandingHeader";
-import MainFooter from "../common/MainFooter";
+import LandingHeader from "../common//headers/LandingHeader";
+import MainFooter from "../common/VendooFooter";
 
-export default function LandingLayout({ children }: any) {
+// Here is the main landing layout of the site
+export default function LandingLayout() {
   return (
     <>
+      {/* Landing header */}
       <LandingHeader />
-      {/* Here is the landing fragmet pages will load with respect to route */}
-      <main style={{ marginTop: `${HEADER_HEIGHT}px` }}>{children}</main>
+      <section style={{ marginTop: `${HEADER_HEIGHT}px` }}>
+        {/* This renders the child route page */}
+        <Outlet />
+      </section>
+      {/* Main Footer */}
       <MainFooter />
     </>
   );

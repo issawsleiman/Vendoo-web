@@ -1,6 +1,6 @@
 import PricingCard from "../../components/cards/PriceCard";
 import { pricingList } from "../../utils/constants/lists";
-import PageHeader from "../../components/common/PageHeader";
+import PageHeader from "../../components/common/SectionHeadingText";
 
 export default function PricingPage() {
   return (

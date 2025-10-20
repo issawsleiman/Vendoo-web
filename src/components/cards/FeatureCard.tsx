@@ -4,7 +4,7 @@ type Props = {
   feature: Feature;
 };
 
-export default function ServiceCard({ feature }: Props) {
+export default function FeatureCard({ feature }: Props) {
   return (
     <div className="group w-full p-8 bg-white shadow-sm hover:shadow-lg rounded-2xl border border-gray-100 transition-all duration-300">
       {/* Icon */}

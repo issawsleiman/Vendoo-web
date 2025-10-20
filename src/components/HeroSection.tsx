@@ -1,16 +1,23 @@
 import { motion } from "framer-motion";
 
 import VendooRoundedButton from "./widgets/VendooRoundedLink";
-import FeaturesList from "./common/FeaturesList";
+import FeaturesList from "./common/pages/FeaturesListingPage";
+import { useTheme } from "../context/ThemeContext";
 
 // here's the landing sections go
 export default function LandingSections() {
+  const currentTheme = useTheme();
+
   return (
     <>
       {/* main section */}
       <section
         id="home"
-        className="w-full pt-14 min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-blue-100 to-blue-200"
+        className={`w-full pt-14 min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b ${
+          currentTheme.isDark
+            ? "from-gray-700 to-gray-900"
+            : "from-blue-100 to-blue-200"
+        }`}
       >
         <motion.h2
           className="text-4xl sm:text-6xl font-extrabold text-blue-900 mb-6"

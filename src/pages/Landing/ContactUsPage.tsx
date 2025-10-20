@@ -1,5 +1,5 @@
 import VendooRoundedLink from "../../components/widgets/VendooRoundedLink";
-import PageHeader from "../../components/common/PageHeader";
+import PageHeader from "../../components/common/SectionHeadingText";
 
 export default function ContactPage() {
   return (
