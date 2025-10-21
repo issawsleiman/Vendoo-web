@@ -1,10 +1,24 @@
 import FeaturesList from "../../components/common/pages/FeaturesListingPage";
 import PageHeader from "../../components/common/SectionHeadingText";
+import { useTheme } from "../../context/ThemeContext";
+import {
+  SecondaryColorDark,
+  SecondaryColorWhite,
+} from "../../utils/constants/colors";
 
 // About Page
 export default function AboutPage() {
+  const currentTheme = useTheme();
+
   return (
-    <div className="w-full min-h-screen bg-gradient-to-b from-blue-100 to-blue-200 p-10 flex flex-col items-center">
+    <div
+      style={{
+        backgroundColor: `${
+          currentTheme.isDark ? SecondaryColorDark : SecondaryColorWhite
+        }`,
+      }}
+      className="w-full min-h-screen p-10 flex flex-col items-center"
+    >
       <PageHeader
         title="  About Vendoo"
         description="Vendoo is a powerful, easy-to-use platform for buying and selling items

@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { PrimaryColorDark, PrimaryColorWhite } from "../utils/constants/colors";
 
 interface Theme {
   // Whether dark mode is currently on or off
@@ -27,7 +28,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     >
       <div
         className={`min-h-screen transition-colors duration-500 ${
-          isDarkTheme ? "bg-gray-900 text-white" : "bg-gray-50 text-black"
+          isDarkTheme ? PrimaryColorDark : PrimaryColorWhite
         }`}
       >
         {children}

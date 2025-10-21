@@ -19,7 +19,7 @@ export default function ThemeSwitch() {
           exit={{ opacity: 0, rotate: 50 }}
           transition={{ duration: 0.3 }}
         >
-          <Sun size={35} />
+          <Sun size={35} color="red" />
         </motion.div>
       ) : (
         <motion.div
@@ -29,7 +29,7 @@ export default function ThemeSwitch() {
           exit={{ opacity: 0, rotate: 90 }}
           transition={{ duration: 0.3 }}
         >
-          <Moon size={35} />
+          <Moon size={35} color="red" />
         </motion.div>
       )}
     </motion.div>

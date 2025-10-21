@@ -10,6 +10,12 @@ import VendooBorderdRoundedButton from "../../widgets/VendooRoundedBorderedLink"
 import getValidRouteName from "../../../utils/functions/getValidRouteName";
 import ThemeSwitch from "../../widgets/ThemeSwitch";
 import { useTheme } from "../../../context/ThemeContext";
+import {
+  PrimaryColorDark,
+  PrimaryColorWhite,
+  SecondaryColorDark,
+  SecondaryColorWhite,
+} from "../../../utils/constants/colors";
 
 export default function LandingHeader() {
   // managing mobile drop down menu
@@ -24,10 +30,13 @@ export default function LandingHeader() {
   return (
     // main landing header
     <motion.header
-      style={{ height: `${HEADER_HEIGHT}px` }}
-      className={`"fixed lg:fixed top-0 left-0 w-full shadow-md z-50 ${
-        currentTheme.isDark ? "bg-black" : "bg-white/40"
-      } backdrop-blur-lg"`}
+      style={{
+        height: `${HEADER_HEIGHT}px`,
+        backgroundColor: `${
+          currentTheme.isDark ? PrimaryColorDark : PrimaryColorWhite
+        }`,
+      }}
+      className={`fixed lg:fixed top-0 left-0 w-full shadow-md z-[100] backdrop-blur-lg`}
       initial={{ opacity: 0, y: -20 }} // Initial mount animation
       animate={{
         opacity: 1,
@@ -39,7 +48,11 @@ export default function LandingHeader() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-full">
         {/* Logo */}
         <img
-          src="./vendoo_logo_trans.png"
+          src={
+            currentTheme.isDark
+              ? "./vendoo_logo_trans_white.png"
+              : "./vendoo_logo_trans.png"
+          }
           alt="Vendoo Logo"
           className="w-[80px] md:w-[160px] cursor-pointer"
         />
@@ -94,16 +107,25 @@ export default function LandingHeader() {
           onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+          {isMobileMenuOpen ? (
+            <X size={26} color={currentTheme.isDark ? "White" : "Black"} />
+          ) : (
+            <Menu size={26} color={currentTheme.isDark ? "White" : "Black"} />
+          )}
         </button>
       </div>
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`absolute top-[80px] left-0 w-full md:hidden transform origin-top transition-transform duration-300 ease-in-out ${
+        style={{
+          backgroundColor: `${
+            currentTheme.isDark ? SecondaryColorDark : SecondaryColorWhite
+          } `,
+        }}
+        className={`absolute top-[80px] left-0 w-full md:hidden transform origin-top transition-transform duration-300 ease-in-out  ${
           isMobileMenuOpen ? "scale-y-100" : "scale-y-0"
         }`}
-        style={{ backgroundColor: "#f4f4f5" }} // Dropdown background
+        // Dropdown background
       >
         <div className="flex flex-col items-center py-4 space-y-3">
           {navLinks.map((link, index) => (
