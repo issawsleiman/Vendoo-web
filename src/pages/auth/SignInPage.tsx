@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { circIn, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import VendooInput from "../../components/widgets/VendooInput";
 import VendooLabel from "../../components/widgets/VendooLabel";
 import VendooRoundedButton from "../../components/widgets/VendooRoundedLink";

@@ -4,14 +4,9 @@ import LandingHeader from "../common//headers/LandingHeader";
 import MainFooter from "../common/VendooFooter";
 import { useTheme } from "../../context/ThemeContext";
 import {
-  AccentColorDark,
-  AccentColorWhite,
-  PrimaryColorDark,
-  PrimaryColorWhite,
   SecondaryColorDark,
   SecondaryColorWhite,
 } from "../../utils/constants/colors";
-import { Moon } from "lucide-react";
 
 // Here is the main landing layout of the site
 export default function LandingLayout() {

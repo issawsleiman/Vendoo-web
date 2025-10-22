@@ -1,4 +1,4 @@
-import { Menu, Moon, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { useHideOnScroll } from "../../../utils/useEffects";
 import { useState } from "react";
@@ -15,8 +15,6 @@ import {
   AccentColorWhite,
   PrimaryColorDark,
   PrimaryColorWhite,
-  SecondaryColorDark,
-  SecondaryColorWhite,
   TextColorDark,
   TextColorWhite,
 } from "../../../utils/constants/colors";

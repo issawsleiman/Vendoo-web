@@ -9,7 +9,6 @@ import { useTheme } from "../../context/ThemeContext";
 import {
   AccentColorDark,
   AccentColorWhite,
-  PriceColorWhite,
   PrimaryColorDark,
   PrimaryColorWhite,
   SecondaryColorDark,

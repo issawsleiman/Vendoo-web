@@ -8,6 +8,8 @@ import {
   AccentColorWhite,
   BorderColorDark,
   BorderColorWhite,
+  PriceColorDark,
+  PriceColorWhite,
   PrimaryColorDark,
   PrimaryColorWhite,
   SecondaryColorDark,
@@ -67,7 +69,7 @@ export default function PricingCard({
       {/* price */}
       <p
         style={{
-          color: `${currentTheme.isDark ? AccentColorDark : AccentColorWhite}`,
+          color: `${currentTheme.isDark ? PriceColorDark : PriceColorWhite}`,
         }}
         className="text-3xl font-extrabold  mb-4"
       >
