@@ -1,11 +1,6 @@
 import { Eye, EyeClosed, type LucideIcon } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
-import {
-  BorderColorDark,
-  BorderColorWhite,
-  TextColorDark,
-  TextColorWhite,
-} from "../../utils/constants/colors";
+import { TextColorDark, TextColorWhite } from "../../utils/constants/colors";
 
 interface InputProps {
   id: string;

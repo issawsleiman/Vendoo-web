@@ -2,12 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import getValidRouteName from "../../utils/functions/getValidRouteName";
 import { useTheme } from "../../context/ThemeContext";
-import {
-  AccentColorDark,
-  AccentColorWhite,
-  PriceColorDark,
-  PriceColorWhite,
-} from "../../utils/constants/colors";
+import { PriceColorDark, PriceColorWhite } from "../../utils/constants/colors";
 
 interface ButtonProps {
   className?: string;
