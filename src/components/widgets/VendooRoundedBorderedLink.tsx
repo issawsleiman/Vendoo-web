@@ -2,12 +2,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
 import {
-  AccentColorDark,
-  AccentColorWhite,
   PriceColorDark,
   PriceColorWhite,
-  PrimaryColorDark,
-  PrimaryColorWhite,
   TextColorDark,
   TextColorWhite,
 } from "../../utils/constants/colors";
