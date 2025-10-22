@@ -5,6 +5,8 @@ import { useTheme } from "../../context/ThemeContext";
 import {
   AccentColorDark,
   AccentColorWhite,
+  PriceColorDark,
+  PriceColorWhite,
 } from "../../utils/constants/colors";
 
 interface ButtonProps {
@@ -29,12 +31,12 @@ export default function VendooRoundedLink({ text, action }: ButtonProps) {
       <Link
         style={{
           backgroundColor: `${
-            currentTheme.isDark ? AccentColorDark : AccentColorWhite
+            currentTheme.isDark ? PriceColorDark : PriceColorWhite
           }`,
         }}
         to={getValidRouteName({ text: text })}
         onClick={action}
-        className=" w-full bg-primary text-white px-8 py-3 rounded-full font-semibold text-center cursor-pointer overflow-hidden "
+        className=" w-full  text-white px-8 py-3 rounded-full font-semibold text-center cursor-pointer overflow-hidden "
       >
         {text}
       </Link>

@@ -8,37 +8,16 @@ import {
 } from "../../utils/constants/colors";
 
 interface InputProps {
-  /** The unique id of the input */
   id: string;
-
-  /** The current value of the input */
   value: string;
-
-  /** Placeholder text shown inside the input */
   hintText?: string;
-
-  /** The name attribute for form submission */
   name: string;
-
-  /** Whether the input is required */
   isRequired?: boolean;
-
-  /** Input type (text, password..) */
   type: string;
-
-  //** Prefix Icon */
   Icon?: LucideIcon;
-
-  //** Is Password
-  // this for controlling showing the eye visibility on input
-  // */
-  isPassword?: Boolean;
-  // is showing password (controlls show/hide password)
-  isShowingPassword?: Boolean;
-  // action for toggling the password icon
+  isPassword?: boolean;
+  isShowingPassword?: boolean;
   passwordToggleAction?: React.MouseEventHandler<HTMLDivElement>;
-
-  /** Optional onChange handler for controlled inputs */
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -55,20 +34,28 @@ export default function VendooInput({
   passwordToggleAction,
   onChange,
 }: InputProps) {
-  // getting current theme
   const currentTheme = useTheme();
 
   return (
-    <div className="flex flex-row justify-between items-center pl-2 pr-2 ">
+    <div
+      className={`w-full flex items-center rounded-lg overflow-hidden border transition-colors duration-200 ${
+        currentTheme.isDark
+          ? "border-white bg-black"
+          : "border-gray-300 bg-white"
+      }`}
+    >
       {Icon && (
-        <Icon
-          size={25}
-          style={{
-            opacity: 0.5,
-            color: `${currentTheme.isDark ? TextColorDark : TextColorWhite}`,
-          }}
-        />
+        <div className="flex items-center justify-center pl-3">
+          <Icon
+            size={22}
+            style={{
+              color: currentTheme.isDark ? TextColorDark : TextColorWhite,
+              opacity: 0.6,
+            }}
+          />
+        </div>
       )}
+
       <input
         id={id}
         name={name}
@@ -77,29 +64,33 @@ export default function VendooInput({
         placeholder={hintText}
         required={isRequired}
         onChange={onChange}
-        style={{
-          border: "1px solid",
-          borderColor: `${
-            currentTheme.isDark ? BorderColorWhite : BorderColorDark
-          }`,
-          color: `${currentTheme.isDark ? TextColorDark : TextColorWhite}`,
-        }}
-        className="pl-4 pr-4 py-3 rounded-md mt-5 mb-5 ml-4 mr-4 focus:outline-none focus:ring-2 transition-all duration-150"
+        className={`flex-1 px-4 py-3 text-sm md:text-base focus:outline-none focus:ring-2 rounded-md transition-all duration-150
+          ${
+            currentTheme.isDark
+              ? "bg-black text-white placeholder:text-gray-400 focus:ring-white"
+              : "bg-white text-black placeholder:text-gray-500 focus:ring-gray-700"
+          }
+        `}
       />
-      <div onClick={passwordToggleAction}>
-        {isPassword &&
-          (isShowingPassword ? (
+
+      {isPassword && (
+        <div
+          onClick={passwordToggleAction}
+          className="flex items-center justify-center px-3 cursor-pointer select-none"
+        >
+          {isShowingPassword ? (
             <EyeClosed
-              size={25}
+              size={22}
               color={currentTheme.isDark ? TextColorDark : TextColorWhite}
             />
           ) : (
             <Eye
-              size={25}
+              size={22}
               color={currentTheme.isDark ? TextColorDark : TextColorWhite}
             />
-          ))}
-      </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

@@ -1,5 +1,16 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useTheme } from "../../context/ThemeContext";
+import {
+  AccentColorDark,
+  AccentColorWhite,
+  PriceColorDark,
+  PriceColorWhite,
+  PrimaryColorDark,
+  PrimaryColorWhite,
+  TextColorDark,
+  TextColorWhite,
+} from "../../utils/constants/colors";
 
 interface ButtonProps {
   // Button text
@@ -12,6 +23,8 @@ export default function VendooBorderdRoundedLink({
   action,
   text,
 }: ButtonProps) {
+  // getting current theme
+  const currentTheme = useTheme();
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
@@ -21,7 +34,13 @@ export default function VendooBorderdRoundedLink({
       <Link
         to={text.toLowerCase().trim()}
         onClick={action}
-        className=" text-primary border-1 px-6 md:px-8 py-3 rounded-full font-semibold text-center cursor-pointer"
+        style={{
+          color: `${currentTheme.isDark ? TextColorDark : TextColorWhite}`,
+          borderColor: `${
+            currentTheme.isDark ? PriceColorDark : PriceColorWhite
+          }`,
+        }}
+        className=" border-1 px-6 md:px-8 py-3 rounded-full font-semibold text-center cursor-pointer"
       >
         {text}
       </Link>

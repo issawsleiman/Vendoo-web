@@ -88,11 +88,6 @@ export default function LandingHeader() {
                 to={getValidRouteName({ text: link })}
                 onClick={() => setCurrentPageIndex(index)}
                 className={`px-4 py-2 rounded-xl font-semibold text-sm md:text-base transition-all duration-300 ease-in-out text-center`}
-                // ${
-                //   currentPageIndex === index
-                //     ? "bg-[#1d88c6] text-white shadow-md shadow-blue-300/40"
-                //     : "text-gray-600 hover:bg-[rgba(29,136,198,0.1)] hover:text-[#1d88c6]"
-                // }
               >
                 {link}
               </Link>
@@ -140,8 +135,8 @@ export default function LandingHeader() {
             currentTheme.isDark ? PrimaryColorDark : PrimaryColorWhite
           } `,
         }}
-        className={`absolute top-[100px] left-10 right-10 pb-10 rounded-2xl md:hidden transform origin-top transition-transform duration-300 ease-in-out ${
-          isMobileMenuOpen ? "scale-y-100 scale-x-100" : "scale-y-0 scale-x-0 "
+        className={`absolute top-[80px] left-10 right-10 pb-10 rounded-2xl md:hidden transform origin-top transition-transform duration-300 ease-in-out ${
+          isMobileMenuOpen ? "scale-y-100" : "scale-y-0"
         }`}
         // Dropdown background
       >
