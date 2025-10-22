@@ -42,7 +42,7 @@ export default function FeatureCard({ feature }: Props) {
         <feature.icon
           size={32}
           color={currentTheme.isDark ? AccentColorDark : AccentColorWhite}
-          strokeWidth={3.5}
+          strokeWidth={1.5}
           className="transition-transform duration-300 group-hover:scale-110 w-full "
         />
       </div>

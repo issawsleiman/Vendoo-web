@@ -6,6 +6,10 @@ import { useTheme } from "../../context/ThemeContext";
 import {
   AccentColorDark,
   AccentColorWhite,
+  BorderColorDark,
+  BorderColorWhite,
+  PrimaryColorDark,
+  PrimaryColorWhite,
   SecondaryColorDark,
   SecondaryColorWhite,
   TextColorDark,
@@ -28,6 +32,13 @@ export default function PricingCard({
         backgroundColor: `${
           currentTheme.isDark ? SecondaryColorDark : SecondaryColorWhite
         }`,
+        borderColor: `${
+          highlighted
+            ? AccentColorDark
+            : currentTheme.isDark
+            ? BorderColorDark
+            : BorderColorWhite
+        }`,
       }}
       key={name}
       whileHover={{ scale: 1.03 }}
@@ -40,10 +51,14 @@ export default function PricingCard({
       {/* name */}
       <h3
         style={{
-          color: `${currentTheme.isDark ? TextColorDark : TextColorWhite}`,
+          color: currentTheme.isDark ? TextColorDark : TextColorWhite,
         }}
         className={`text-xl font-bold mb-2 ${
-          highlighted ? "text-primary" : "text-gray-900"
+          highlighted
+            ? PrimaryColorDark
+            : currentTheme.isDark
+            ? TextColorDark
+            : TextColorWhite
         }`}
       >
         {name}
@@ -61,7 +76,9 @@ export default function PricingCard({
       {/* description */}
       <p
         style={{
-          color: `${currentTheme.isDark ? AccentColorDark : AccentColorWhite}`,
+          color: `${
+            currentTheme.isDark ? PrimaryColorWhite : PrimaryColorDark
+          }`,
         }}
         className=" mb-6"
       >
@@ -72,13 +89,19 @@ export default function PricingCard({
           <li
             key={i}
             style={{
-              color: `${
-                currentTheme.isDark ? AccentColorDark : AccentColorWhite
-              }`,
+              color: `${currentTheme.isDark ? TextColorDark : TextColorWhite}`,
             }}
             className="flex items-center "
           >
-            <CheckCircle className="text-primary mr-2 " size={18} />
+            <CheckCircle
+              style={{
+                color: `${
+                  currentTheme.isDark ? AccentColorDark : AccentColorWhite
+                }`,
+              }}
+              className="mr-2"
+              size={18}
+            />
             {feature}
           </li>
         ))}

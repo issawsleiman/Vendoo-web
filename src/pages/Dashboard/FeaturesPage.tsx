@@ -1,4 +1,4 @@
-import FeaturesList from "../../components/common/pages/FeaturesListingPage";
+import FeaturesListingPage from "../../components/common/pages/FeaturesListingPage";
 import PageHeader from "../../components/common/SectionHeadingText";
 import { useTheme } from "../../context/ThemeContext";
 import {
@@ -21,7 +21,7 @@ export default function FeaturesPage() {
         and grow sales — all in one platform."
       />
 
-      <FeaturesList />
+      <FeaturesListingPage />
     </section>
   );
 }

@@ -5,45 +5,81 @@ import { useState } from "react";
 import VendooRoundedButton from "../../components/widgets/VendooRoundedLink";
 import { Link } from "react-router-dom";
 import { LockIcon, MailIcon, User2Icon } from "lucide-react";
+import { useTheme } from "../../context/ThemeContext";
+import {
+  AccentColorDark,
+  AccentColorWhite,
+  PriceColorWhite,
+  PrimaryColorDark,
+  PrimaryColorWhite,
+  SecondaryColorDark,
+  SecondaryColorWhite,
+  TextColorDark,
+  TextColorWhite,
+} from "../../utils/constants/colors";
+import getValidRouteName from "../../utils/functions/getValidRouteName";
 
 export default function RegisterPage() {
+  const currentTheme = useTheme();
+  // form data
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
+  // password visibility
   const [passwordVisibility, setPasswordVisibility] = useState(false);
 
+  // confirm password visibility
   const [confirmPasswordVisibility, setConfirmPasswordVisibility] =
     useState(false);
 
+  // handle submit
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Register form submitted:", formData);
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 p-6 ">
+    <div className="min-h-screen w-full flex items-center justify-center p-6 ">
       {/* Register Form */}
       <motion.form
         onSubmit={handleSubmit}
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full max-w-md bg-white/90 backdrop-blur-lg p-10 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.1)] flex flex-col gap-8"
+        style={{
+          backgroundColor: `${
+            currentTheme.isDark ? PrimaryColorDark : PrimaryColorWhite
+          }`,
+          boxShadow: `1px 0px 10px ${
+            currentTheme.isDark ? SecondaryColorDark : SecondaryColorWhite
+          }`,
+        }}
+        className="w-full max-w-md backdrop-blur-lg p-10 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.1)] flex flex-col gap-8"
       >
         {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl font-extrabold text-blue-700 text-center"
+          style={{
+            color: `${
+              currentTheme.isDark ? AccentColorDark : AccentColorWhite
+            }`,
+          }}
+          className="text-3xl md:text-4xl font-extrabold  text-center"
         >
           Create an Account
         </motion.h1>
 
-        <p className="text-center text-gray-500 -mt-4 text-sm">
+        <p
+          style={{
+            color: `${currentTheme.isDark ? TextColorDark : TextColorWhite}`,
+          }}
+          className="text-center -mt-4 text-sm"
+        >
           Join Vendoo today and start exploring.
         </p>
 
@@ -158,14 +194,27 @@ export default function RegisterPage() {
         </motion.div>
 
         {/* Footer Links */}
-        <div className="flex justify-between text-sm text-gray-500 mt-3">
-          <p className="hover:text-blue-600 transition-colors duration-200">
+        <div
+          style={{
+            color: `${currentTheme.isDark ? TextColorDark : TextColorWhite}`,
+          }}
+          className="flex flex-row justify-center text-sm mt-3 gap-2 text-center items-center"
+        >
+          <Link
+            replace
+            to={`/${getValidRouteName({ text: "forgot password" })}`}
+          >
             Already have an account?
-          </p>
+          </Link>
           <Link
             replace
             to="/login"
-            className="hover:text-blue-600 transition-colors duration-200"
+            style={{
+              color: `${
+                currentTheme.isDark ? AccentColorDark : AccentColorWhite
+              }`,
+            }}
+            className="transition-colors font-extrabold duration-200"
           >
             Login
           </Link>

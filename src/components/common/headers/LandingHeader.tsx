@@ -11,10 +11,14 @@ import getValidRouteName from "../../../utils/functions/getValidRouteName";
 import ThemeSwitch from "../../widgets/ThemeSwitch";
 import { useTheme } from "../../../context/ThemeContext";
 import {
+  AccentColorDark,
+  AccentColorWhite,
   PrimaryColorDark,
   PrimaryColorWhite,
   SecondaryColorDark,
   SecondaryColorWhite,
+  TextColorDark,
+  TextColorWhite,
 } from "../../../utils/constants/colors";
 
 export default function LandingHeader() {
@@ -37,7 +41,7 @@ export default function LandingHeader() {
         }`,
       }}
       className={`fixed lg:fixed top-0 left-0 w-full shadow-md z-[100] backdrop-blur-lg`}
-      initial={{ opacity: 0, y: -20 }} // Initial mount animation
+      initial={{ opacity: 0, y: -20 }}
       animate={{
         opacity: 1,
         y: isShowingHeader ? 0 : -100,
@@ -66,15 +70,31 @@ export default function LandingHeader() {
               key={link}
             >
               <Link
+                style={{
+                  color: `${
+                    currentPageIndex == index
+                      ? PrimaryColorWhite
+                      : `${
+                          currentTheme.isDark
+                            ? PrimaryColorWhite
+                            : PrimaryColorDark
+                        }`
+                  }`,
+                  backgroundColor:
+                    currentPageIndex === index
+                      ? currentTheme.isDark
+                        ? AccentColorDark
+                        : AccentColorWhite
+                      : undefined,
+                }}
                 to={getValidRouteName({ text: link })}
                 onClick={() => setCurrentPageIndex(index)}
-                className={`px-4 py-2 rounded-xl font-semibold text-sm md:text-base transition-all duration-300 ease-in-out text-center
-      ${
-        currentPageIndex === index
-          ? "bg-[#1d88c6] text-white shadow-md shadow-blue-300/40"
-          : "text-gray-600 hover:bg-[rgba(29,136,198,0.1)] hover:text-[#1d88c6]"
-      }
-    `}
+                className={`px-4 py-2 rounded-xl font-semibold text-sm md:text-base transition-all duration-300 ease-in-out text-center`}
+                // ${
+                //   currentPageIndex === index
+                //     ? "bg-[#1d88c6] text-white shadow-md shadow-blue-300/40"
+                //     : "text-gray-600 hover:bg-[rgba(29,136,198,0.1)] hover:text-[#1d88c6]"
+                // }
               >
                 {link}
               </Link>
@@ -119,11 +139,11 @@ export default function LandingHeader() {
       <div
         style={{
           backgroundColor: `${
-            currentTheme.isDark ? SecondaryColorDark : SecondaryColorWhite
+            currentTheme.isDark ? PrimaryColorDark : PrimaryColorWhite
           } `,
         }}
-        className={`absolute top-[80px] left-0 w-full md:hidden transform origin-top transition-transform duration-300 ease-in-out  ${
-          isMobileMenuOpen ? "scale-y-100" : "scale-y-0"
+        className={`absolute top-[100px] left-10 right-10 pb-10 rounded-2xl md:hidden transform origin-top transition-transform duration-300 ease-in-out ${
+          isMobileMenuOpen ? "scale-y-100 scale-x-100" : "scale-y-0 scale-x-0 "
         }`}
         // Dropdown background
       >
@@ -138,14 +158,23 @@ export default function LandingHeader() {
               className="px-6 py-2 rounded-md text-center font-medium transition-colors duration-200"
             >
               <Link
+                style={{
+                  color: `${
+                    currentPageIndex == index
+                      ? TextColorDark
+                      : currentTheme.isDark
+                      ? TextColorDark
+                      : TextColorWhite
+                  }`,
+                  backgroundColor:
+                    currentPageIndex === index
+                      ? currentTheme.isDark
+                        ? AccentColorDark
+                        : AccentColorWhite
+                      : undefined,
+                }}
                 to={getValidRouteName({ text: link })}
-                className={`px-6 py-2 rounded-md text-center font-medium transition-colors duration-200
-    ${
-      currentPageIndex === index
-        ? "bg-[#1d88c6] text-white"
-        : "text-[#052a9c] hover:bg-[rgba(29,136,198,0.1)] hover:text-[#1d88c6]"
-    }
-  `}
+                className="px-6 py-2 rounded-md text-center font-medium transition-colors duration-200"
               >
                 {link}
               </Link>

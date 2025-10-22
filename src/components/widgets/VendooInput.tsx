@@ -1,4 +1,11 @@
 import { Eye, EyeClosed, type LucideIcon } from "lucide-react";
+import { useTheme } from "../../context/ThemeContext";
+import {
+  BorderColorDark,
+  BorderColorWhite,
+  TextColorDark,
+  TextColorWhite,
+} from "../../utils/constants/colors";
 
 interface InputProps {
   /** The unique id of the input */
@@ -48,9 +55,20 @@ export default function VendooInput({
   passwordToggleAction,
   onChange,
 }: InputProps) {
+  // getting current theme
+  const currentTheme = useTheme();
+
   return (
     <div className="flex flex-row justify-between items-center pl-2 pr-2 ">
-      {Icon && <Icon size={25} style={{ opacity: 0.5 }} />}
+      {Icon && (
+        <Icon
+          size={25}
+          style={{
+            opacity: 0.5,
+            color: `${currentTheme.isDark ? TextColorDark : TextColorWhite}`,
+          }}
+        />
+      )}
       <input
         id={id}
         name={name}
@@ -59,11 +77,28 @@ export default function VendooInput({
         placeholder={hintText}
         required={isRequired}
         onChange={onChange}
-        className=" w-full bg-white/50 placeholder-gray-400 border-gray-100 border-2 text-gray-900 pl-4 pr-4 py-3  rounded-md mt-5 mb-5 focus:outline-none focus:ring-2 ml-4 mr-4 focus:ring-blue-500 transition-all duration-150"
+        style={{
+          border: "1px solid",
+          borderColor: `${
+            currentTheme.isDark ? BorderColorWhite : BorderColorDark
+          }`,
+          color: `${currentTheme.isDark ? TextColorDark : TextColorWhite}`,
+        }}
+        className="pl-4 pr-4 py-3 rounded-md mt-5 mb-5 ml-4 mr-4 focus:outline-none focus:ring-2 transition-all duration-150"
       />
       <div onClick={passwordToggleAction}>
         {isPassword &&
-          (isShowingPassword ? <EyeClosed size={25} /> : <Eye size={25} />)}
+          (isShowingPassword ? (
+            <EyeClosed
+              size={25}
+              color={currentTheme.isDark ? TextColorDark : TextColorWhite}
+            />
+          ) : (
+            <Eye
+              size={25}
+              color={currentTheme.isDark ? TextColorDark : TextColorWhite}
+            />
+          ))}
       </div>
     </div>
   );

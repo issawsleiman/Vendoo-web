@@ -9,7 +9,7 @@ import PricingPage from "../pages/Dashboard/PricingPage";
 import PrivacyPolicyPage from "../pages/Dashboard/Privacy";
 import AboutPage from "../pages/Landing/AboutPage";
 import ContactUsPage from "../pages/Landing/ContactUsPage";
-import HomeLanding from "../pages/Landing/LandingHome";
+import HomeLanding from "../pages/Landing/HomeLandingPage";
 
 // Whole App Routers
 export default function AllAppRouter() {

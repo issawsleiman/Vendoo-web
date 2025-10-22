@@ -1,3 +1,6 @@
+import { useTheme } from "../../context/ThemeContext";
+import { TextColorDark, TextColorWhite } from "../../utils/constants/colors";
+
 interface LabelProps {
   /** The text content of the label */
   text: string;
@@ -7,16 +10,17 @@ interface LabelProps {
 }
 
 export default function VendooLabel({ text, htmlFor }: LabelProps) {
+  // getting current theme
+  const currentTheme = useTheme();
   return (
     <label
       htmlFor={htmlFor}
-      className="inline-block w-full text-xl md:text-2xl lg:text-2xl font-medium text-gray-800"
+      style={{
+        color: `${currentTheme.isDark ? TextColorDark : TextColorWhite}`,
+      }}
+      className="inline-block w-full text-l md:text-2xl lg:text-2xl font-medium"
     >
       {text}
     </label>
   );
 }
-
-
-
-

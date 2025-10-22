@@ -4,9 +4,14 @@ import LandingHeader from "../common//headers/LandingHeader";
 import MainFooter from "../common/VendooFooter";
 import { useTheme } from "../../context/ThemeContext";
 import {
+  AccentColorDark,
+  AccentColorWhite,
+  PrimaryColorDark,
+  PrimaryColorWhite,
   SecondaryColorDark,
   SecondaryColorWhite,
 } from "../../utils/constants/colors";
+import { Moon } from "lucide-react";
 
 // Here is the main landing layout of the site
 export default function LandingLayout() {
@@ -16,6 +21,7 @@ export default function LandingLayout() {
     <>
       {/* Landing header */}
       <LandingHeader />
+      {/* Main Container */}
       <section
         style={{
           marginTop: `${HEADER_HEIGHT}px`,
@@ -27,6 +33,7 @@ export default function LandingLayout() {
         {/* This renders the child route page */}
         <Outlet />
       </section>
+
       {/* Main Footer */}
       <MainFooter />
     </>
