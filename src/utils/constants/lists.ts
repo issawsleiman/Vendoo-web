@@ -6,18 +6,22 @@ import {
   Database,
   Globe,
   Heart,
+  LineChart,
   MapPin,
   MessageSquare,
   Search,
   Settings,
   ShieldCheck,
   ShoppingBag,
+  ShoppingCart,
   Smartphone,
+  Store,
   Truck,
   UserCheck,
 } from "lucide-react";
 import type { Feature } from "../../models/Feature";
 import type {Pricing} from "../../models/Pricing"
+import type { Testimonial } from "../../models/Testimonial";
 
 // Nav LINKS
 export const navLinks = ["Home", "Features","Pricing","About", "Contact"];
@@ -138,3 +142,74 @@ export const pricingList : Pricing[] = [
       highlighted: false,
   }
 ]
+
+
+export const testimonials: Testimonial[] = [
+  {
+    id: crypto.randomUUID(),
+    quote:
+      "OMG 3anjad Vendoo 8ayyarle sh8le 180°. El inventory management la 7ala ossa, rayya7tne to the max! 💯",
+    name: "Sarah K.",
+    title: "Vintage Shop Owner",
+    stars: 5,
+  },
+  {
+    id: crypto.randomUUID(),
+    quote:
+      "Tbh kent ktir khayef en2ol sh8le online, bas Vendoo sahhala 3layye level 999. Ma bya3ate double b 3 months. Literally.",
+    name: "Mark A.",
+    title: "Handmade Crafts Seller",
+    stars: 5,
+  },
+  {
+    id: crypto.randomUUID(),
+    quote:
+      "El Analytics hene el game changer. A5iran sert efham el customers shu baddon w jib bde3a 3al asas. No cap.",
+    name: "Elena R.",
+    title: "Boutique Owner",
+    stars: 5,
+  },
+  {
+    id: crypto.randomUUID(),
+    quote:
+      "Bro sh8lkon fire 🔥. El support team de8re btrodd, w kel shi wade7 w sahel, ma btdi3. Keep it up!",
+    name: "Georges N.",
+    title: "Electronics Shop Owner",
+    stars: 5,
+  },
+  {
+    id: crypto.randomUUID(),
+    quote:
+      "Serle shahrayn bas fat7a el store, wel orders ma 3am twa2ef! El platform ktir sari3a w ma bta3le2. Big W.",
+    name: "Nour F.",
+    title: "Fashion Designer",
+    stars: 5,
+  },
+  {
+    id: crypto.randomUUID(),
+    quote:
+      "A7la shi enno all-in-one. El fawater, el orders, el customers... Ma 3edt b7aje la 10 apps tenye. Sh8l ndif. GG.",
+    name: "Karim H.",
+    title: "Supplements Seller",
+    stars: 5,
+  },
+];
+export const howItWorksSteps = [
+  {
+    icon: Store, // Changed from FaStore
+    title: "Set Up Your Store",
+    description:
+      "Create your beautiful, custom storefront in just a few clicks.",
+  },
+  {
+    icon: ShoppingCart, // Changed from FaShoppingCart
+    title: "Add Your Products",
+    description:
+      "Upload product images and descriptions with our easy-to-use editor.",
+  },
+  {
+    icon: LineChart, // Changed from FaChartLine
+    title: "Start Selling",
+    description: "Go live and watch the sales (and data) roll in.",
+  },
+];
